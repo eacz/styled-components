@@ -21,8 +21,14 @@ function App() {
     <>
       <GlobalStyle />
       <h1>App</h1>
-      <Button>
-        Test
+      <Button >
+        Primary Button
+      </Button>
+      <Button secondary >
+        Secondary Button
+      </Button>
+      <Button disabled >
+        Disabled Button
       </Button>
     </>
   );
