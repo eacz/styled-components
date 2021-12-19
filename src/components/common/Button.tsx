@@ -1,7 +1,8 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 interface Props {
   readonly secondary?: boolean
+  readonly large?: boolean
 }
 
 const Button = styled.button<Props>`
@@ -9,9 +10,18 @@ const Button = styled.button<Props>`
   background: ${({secondary}) => secondary ? 'black' : '#f8049c' };
   font-weight: bold;
   padding: 8px;
-  border-radius: 4px;
+  ${({large}) => large ? css`
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+  `
+  : css`
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 1rem;
+  `
+}  
   box-shadow: none;
-  font-size: 1rem;
   border: none;
   width: 100%;  
   display: block;
