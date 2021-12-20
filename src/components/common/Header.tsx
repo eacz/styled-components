@@ -9,19 +9,32 @@ const HeaderWrapper = styled.header`
   padding: 0 16px;
   position: fixed;
   top: 0;
-  background: #eeeeee;
+  background-image: linear-gradient(to right, #f8048c, #fdd54f );
+  border-bottom: #fdd54f 3px solid;
 `;
 
 const Menu = styled.nav`
-  display: flex;
-  position: relative;
-  width: initial;
-  border-bottom: none;
-  margin: auto 0 auto auto;
+  display: block;
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  left: 0;
+  padding: 8px;
+  box-sizing: border-box;
   font-family: 'Open Sans';
-  background: none;
-  left: initial;
-  top: initial;
+  border-bottom: #fdd54f 3px solid;
+  background: white;
+  
+  @media(min-width: 768px) {
+    display: flex; 
+    background: none;
+    left: initial;
+    top: initial;  
+    width: initial;
+    position: relative;
+    border-bottom: none;
+    margin: auto 0 auto auto;
+  }
 `;
 
 const StyledLink = styled(NavLink)`
@@ -30,7 +43,8 @@ const StyledLink = styled(NavLink)`
   text-align: center;
   box-sizing: border-box;
   margin: 0 auto;
-
+  color: black;
+  text-decoration: none;
   &.active {
     font-weight: bold;
   }
