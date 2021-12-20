@@ -1,10 +1,10 @@
-import React from 'react'
+import { PageLayout } from 'components/common'
 
 const Login = () => {
   return (
-    <div>
+    <PageLayout>
       Login
-    </div>
+    </PageLayout>
   )
 }
 

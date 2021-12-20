@@ -4,10 +4,6 @@ import Home from "components/pages/Home";
 import Login from "components/pages/Login";
 
 const GlobalStyle = createGlobalStyle`
-  p {
-    font-size: 8px;
-  }
-
   body {
     background: white;
     min-height: 100vh;

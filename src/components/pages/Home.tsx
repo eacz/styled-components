@@ -1,8 +1,10 @@
+import { PageLayout } from "components/common"
+
 const Home = () => {
   return (
-    <div>
+    <PageLayout>
       Home
-    </div>
+    </PageLayout>
   )
 }
 
