@@ -1,5 +1,5 @@
-import { PageLayout, Input } from 'components/common'
-import { ChangeEvent, useState } from 'react'
+import { PageLayout, Input, PasswordInput, Button } from 'components/common'
+import { ChangeEvent, FormEvent, useState } from 'react'
 import styled from 'styled-components'
 
 const Form = styled.form`
@@ -11,6 +11,12 @@ const Form = styled.form`
   padding: 16px;
   box-sizing: border-box;
   border-radius: 4px;
+
+  .alt-text {
+    text-align: center;
+    margin: 10px 0;
+
+  }
 `
 
 const Login = () => {
@@ -20,12 +26,21 @@ const Login = () => {
     setFormFields(s => ({...s, [e.target.name]: e.target.value}))
   }
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault()
+  }
+
   return (
     <PageLayout>
       <h1>Login</h1>
-      <Form>
+      <Form onSubmit={handleSubmit}>
         <Input value={formFields.username} type="text" name="username" placeholder='Username' onChange={handleInputChange} />
-        <Input value={formFields.password} type="password" name="password" placeholder='Password' onChange={handleInputChange} />
+        <PasswordInput value={formFields.password} name="password" placeholder='Password' onChange={handleInputChange} />
+        
+        <Button large type="submit">Login</Button>
+        <p className='alt-text' >or</p>
+        <Button secondary type="button">Register</Button>
+      
       </Form>
     </PageLayout>
   )

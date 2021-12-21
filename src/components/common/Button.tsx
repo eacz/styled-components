@@ -7,7 +7,7 @@ interface Props {
 
 const Button = styled.button<Props>`
   color: white;
-  background: ${({secondary}) => secondary ? 'black' : '#f8049c' };
+  background: ${({secondary}) => secondary ? '#fdd54f' : '#f8049c' };
   font-weight: bold;
   padding: 8px;
   ${({large}) => large ? css`
@@ -30,6 +30,10 @@ const Button = styled.button<Props>`
   &:disabled {
     background: #eee;
     color: #666;
+  }
+
+  &:hover {
+    cursor: pointer;
   }
 `;
 
