@@ -1,4 +1,4 @@
-import { PageLayout, Input, PasswordInput, Button } from 'components/common'
+import { PageLayout, Input, PasswordInput, Button, Spinner } from 'components/common'
 import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
@@ -46,8 +46,14 @@ const Login = () => {
     <PageLayout>
       <h1>Login</h1>
       <Form onSubmit={handleSubmit}>
-        <Input value={formFields.username} type="text" name="username" placeholder='Username' onChange={handleInputChange} />
-        <PasswordInput value={formFields.password} name="password" placeholder='Password' onChange={handleInputChange} />
+        {loading 
+          ? <Spinner />
+          :
+            <>
+              <Input value={formFields.username} type="text" name="username" placeholder='Username' onChange={handleInputChange} />
+              <PasswordInput value={formFields.password} name="password" placeholder='Password' onChange={handleInputChange} />
+            </>
+        }
           
         <Button disabled={loading} large type="submit">
           {loading ? 'Loading...' : 'Login'}
