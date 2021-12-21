@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 
@@ -13,8 +14,8 @@ const HeaderWrapper = styled.header`
   border-bottom: #fdd54f 3px solid;
 `;
 
-const Menu = styled.nav`
-  display: block;
+const Menu = styled.nav<{open: boolean}>`
+  display: ${({open} ) => open ? 'block' : 'none'};
   position: absolute;
   width: 100%;
   top: 60px;
@@ -50,10 +51,33 @@ const StyledLink = styled(NavLink)`
   }
 `
 
+const MobileMenuICon = styled.div`
+  margin: auto 0 auto auto;
+  width: 25px;
+  min-width: 25px;
+  padding: 5px;
+  >div {
+    height: 3px;
+    background: black;
+    margin: 5px 0;
+    width: 100%;
+  }
+
+  @media (min-width: 786px){
+    display: none;
+  }
+`
+
 export const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
     <HeaderWrapper>
-      <Menu>
+      <MobileMenuICon onClick={() => setMenuOpen((s) => !s)} >
+        <div />
+        <div />
+        <div />
+      </MobileMenuICon>
+      <Menu open={menuOpen}>
         <StyledLink to='/'>Home</StyledLink>
         <StyledLink to='/login'>Login</StyledLink>
       </Menu>
