@@ -30,6 +30,7 @@ const Button = styled.button<Props>`
   &:disabled {
     background: #eee;
     color: #666;
+    cursor: default !important;
   }
 
   &:hover {

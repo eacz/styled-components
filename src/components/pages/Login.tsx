@@ -1,5 +1,5 @@
 import { PageLayout, Input, PasswordInput, Button } from 'components/common'
-import { ChangeEvent, FormEvent, useState } from 'react'
+import { ChangeEvent, FormEvent, useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 const Form = styled.form`
@@ -19,16 +19,28 @@ const Form = styled.form`
   }
 `
 
+let timeout: undefined | ReturnType<typeof setTimeout>;
+
 const Login = () => {
   const [formFields, setFormFields] = useState({username: '', password: ''})
-
+  const [loading, setLoading] = useState(false)
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormFields(s => ({...s, [e.target.name]: e.target.value}))
   }
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
+    setLoading(true)
+    timeout = setTimeout(() => setLoading(false), 3000)
   }
+
+  useEffect(() => {
+    return () => {
+      if(timeout){
+        clearTimeout(timeout)
+      }
+    } 
+  }, [])
 
   return (
     <PageLayout>
@@ -36,11 +48,17 @@ const Login = () => {
       <Form onSubmit={handleSubmit}>
         <Input value={formFields.username} type="text" name="username" placeholder='Username' onChange={handleInputChange} />
         <PasswordInput value={formFields.password} name="password" placeholder='Password' onChange={handleInputChange} />
-        
-        <Button large type="submit">Login</Button>
-        <p className='alt-text' >or</p>
-        <Button secondary type="button">Register</Button>
-      
+          
+        <Button disabled={loading} large type="submit">
+          {loading ? 'Loading...' : 'Login'}
+        </Button>
+        {!loading && 
+          <>
+            <p className='alt-text' >or</p>
+            <Button secondary type="button">Register</Button>
+          </>
+        }
+          
       </Form>
     </PageLayout>
   )
