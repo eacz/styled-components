@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 const Input = styled.input`
   padding: 4px 8px;
-  border: 1px solid #ccc;
+  border: 1px solid ${({theme}) => theme.backgroundContrast};
+  background: ${({theme}) => theme.background};
+  color: ${({theme}) => theme.fontColor};
   border-radius: 4px;
   font-size: 1em;
   font-family: 'Open Sans';

@@ -7,7 +7,7 @@ interface Props {
 
 const Button = styled.button<Props>`
   color: white;
-  background: ${({secondary}) => secondary ? '#fdd54f' : '#f8049c' };
+  background: ${({secondary, theme}) => secondary ? theme.secondaryColor : theme.primaryColor };
   font-weight: bold;
   padding: 8px;
   ${({large}) => large ? css`

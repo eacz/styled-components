@@ -5,9 +5,9 @@ import styled from 'styled-components'
 const Form = styled.form`
   width: 100%;
   max-width: 400px;
-  background: white;
+  background: ${({theme}) => theme.background};
   color: black;
-  border: 1px solid #eee;
+  border: 1px solid ${({theme}) => theme.backgroundContrast};
   padding: 16px;
   box-sizing: border-box;
   border-radius: 4px;

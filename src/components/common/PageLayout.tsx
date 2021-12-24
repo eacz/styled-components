@@ -12,6 +12,9 @@ const Content = styled.main`
   h1,h2,h3,h4,h5,h6{
     font-family: 'Kaushan Script', cursive;
   }
+  h1,h2,h3,h4,h5,h6, p {
+    color: ${({theme}) => theme.fontColor}
+  }
 `
 
 export const PageLayout: FC = ({children}) => {

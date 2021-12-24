@@ -15,11 +15,15 @@ const PasswordInputStyled = styled(Input)
   }))`
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
+    background: ${({theme}) => theme.background};
+    border: 1px solid ${({theme}) => theme.backgroundContrast};
   `;
 
 const ToggleButton = styled.div`
   height: 40px;
-  border: 1px solid #ccc;
+  background: ${({theme}) => theme.background};
+  border: 1px solid ${({theme}) => theme.backgroundContrast};
+  color: ${({theme}) => theme.fontColor};
   box-sizing: border-box;
   font-size: 0.9em;
   display: flex;
@@ -27,11 +31,9 @@ const ToggleButton = styled.div`
   border-left: 0;
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  background: white;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
-  color: black;
 `
 
 
