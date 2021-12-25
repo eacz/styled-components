@@ -17,6 +17,18 @@ const Form = styled.form`
     margin: 10px 0;
 
   }
+
+  span {
+    color: ${({theme}) => theme.fontColor}
+  }
+
+  >${Button}:first-of-type{
+    margin-top: 40px;
+  }
+
+  >${Input}:first-of-type{
+    margin-top: 20px;
+  }
 `
 
 let timeout: undefined | ReturnType<typeof setTimeout>;
@@ -50,6 +62,7 @@ const Login = () => {
           ? <Spinner />
           :
             <>
+              <span>Login if you have an account</span>
               <Input value={formFields.username} type="text" name="username" placeholder='Username' onChange={handleInputChange} />
               <PasswordInput value={formFields.password} name="password" placeholder='Password' onChange={handleInputChange} />
             </>
