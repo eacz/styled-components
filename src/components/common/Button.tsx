@@ -44,4 +44,10 @@ const Button = styled.button<Props>`
   }
 `;
 
+//propTypes in case of using js
+//Button.propTypes = {
+//  large: PropTypes.bool,
+//  secondary: PropTypes.bool,
+//}
+
 export { Button }
